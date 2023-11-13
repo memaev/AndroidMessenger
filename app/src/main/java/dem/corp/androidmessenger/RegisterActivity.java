@@ -45,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         userInfo.put("email", binding.emailEt.getText().toString());
                                         userInfo.put("username", binding.usernameEt.getText().toString());
                                         userInfo.put("profileImage", "");
+                                        userInfo.put("chats", "");
+
                                         FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                                 .setValue(userInfo);
 
