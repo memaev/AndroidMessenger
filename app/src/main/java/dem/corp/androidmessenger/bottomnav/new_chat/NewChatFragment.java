@@ -46,10 +46,11 @@ public class NewChatFragment extends Fragment {
                         continue;
                     }
 
+                    String uid = userSnapshot.getKey();
                     String username = userSnapshot.child("username").getValue().toString();
                     String profileImage = userSnapshot.child("profileImage").getValue().toString();
 
-                    users.add(new User(username, profileImage));
+                    users.add(new User(uid, username, profileImage));
                 }
 
                 binding.usersRv.setLayoutManager(new LinearLayoutManager(getContext()));

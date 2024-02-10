@@ -1,9 +1,10 @@
 package dem.corp.androidmessenger.users;
 
 public class User {
-    String username, profileImage;
+    public String uid, username, profileImage;
 
-    public User(String username, String profileImage) {
+    public User(String uid, String username, String profileImage) {
+        this.uid = uid;
         this.username = username;
         this.profileImage = profileImage;
     }
