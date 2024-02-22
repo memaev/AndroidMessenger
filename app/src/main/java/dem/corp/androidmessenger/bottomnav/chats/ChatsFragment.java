@@ -48,6 +48,7 @@ public class ChatsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String chatsStr = Objects.requireNonNull(snapshot.child("Users").child(uid).child("chats").getValue()).toString();
                 String[] chatsIds = chatsStr.split(",");
+                if (chatsIds.length==0) return;
 
                 for (String chatId : chatsIds){
                     DataSnapshot chatSnapshot = snapshot.child("Chats").child(chatId);

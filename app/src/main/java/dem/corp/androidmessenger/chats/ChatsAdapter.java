@@ -1,5 +1,6 @@
 package dem.corp.androidmessenger.chats;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import dem.corp.androidmessenger.ChatActivity;
 import dem.corp.androidmessenger.R;
 
 public class ChatsAdapter extends RecyclerView.Adapter<ChatViewHolder>{
@@ -60,6 +62,12 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatViewHolder>{
                         }
                     }
                 });
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), ChatActivity.class);
+            intent.putExtra("chatId", chats.get(position).getChat_id());
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override
